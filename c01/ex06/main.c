@@ -6,7 +6,7 @@
 /*   By: lhumbert <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 16:04:44 by lhumbert          #+#    #+#             */
-/*   Updated: 2021/07/12 22:21:41 by lhumbert         ###   ########.fr       */
+/*   Updated: 2021/07/12 23:20:15 by lhumbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	test(char *str, int exp);
 void	print_res(int exp, int res);
 void	print(char *msg, char *color);
 void	print_int(char *msg, char *color, int nb);
+void	print_str(char *msg, char *color, char *str);
 
 int	main(void)
 {
@@ -28,9 +29,7 @@ int	main(void)
 
 void	test(char *str, int exp)
 {
-	print("Testing with: ", YEL);
-	sprintf(str, "%s\n", str);
-	print(str, MAG);
+	print_str("Testing with: %s\n", YEL, str);
 	print_res(exp, ft_strlen(str));
 }
 
@@ -42,15 +41,4 @@ void	print_res(int exp, int res)
 	else
 		print_int("NOT OK, got: %d\n", RED, res);
 	printf("=============================================\n\n");
-}
-
-void	print(char *msg, char *color)
-{
-	printf("%s%s" RESET, color, msg);
-}
-
-void	print_int(char *msg, char *color, int nb)
-{
-	sprintf(msg, msg, nb);
-	printf("%s%s" RESET, color, msg);
 }
